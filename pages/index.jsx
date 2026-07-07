@@ -20,12 +20,12 @@ export default function Index() {
                 ))}
             </ul> */}
 
-            <Container>
-                <Row className="mt-5">
+            <Container className='d-flex justify-content-center align-items-center'>
+                <Row className="mt-5 w-100">
                     <ListGroup>
                         <ListGroup.Item>
-                            <Link href={"/users"}><div className='bg-info text-white p-3 fs-3 mb-1'>users</div></Link>
-                            <Link href={"/posts"}><div className='bg-warning text-dark p-3 fs-3 mb-1'>posts</div></Link>
+                            <Link href={"/users"} className='bg-info text-white p-3 fs-3 mb-1 w-100 d-block text-decoration-none'>users</Link>
+                            <Link href={"/posts"} className='bg-warning text-dark p-3 fs-3 mb-1 w-100 d-block text-decoration-none'>posts</Link>
                         </ListGroup.Item>
                     </ListGroup>
                 </Row>
