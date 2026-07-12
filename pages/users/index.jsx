@@ -16,7 +16,7 @@ export default function Users (props) {
                 <ListGroup>
                     {props.users.map(u=>(
                         <ListGroupItem key={u.id}>
-                            <Link className="text-text-decoration-none" href={`/users/${u.id}`}>
+                            <Link className="text-decoration-none" href={`/users/${u.id}`}>
                                 {u.name}
                             </Link>
                         </ListGroupItem>
