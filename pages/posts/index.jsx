@@ -7,7 +7,7 @@ export default function Posts(props) {
             <ListGroup>
                 {props.posts.map(p => (
                     <ListGroupItem key={p.id}>
-                        <Link className="text-text-decoration-none" href={`/posts/${p.id}`}>
+                        <Link className="text-decoration-none" href={`/posts/${p.id}`}>
                             {p.title}
                         </Link>    
                     </ListGroupItem>
@@ -19,12 +19,13 @@ export default function Posts(props) {
 };
 
 export async function getStaticProps() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const res = await fetch('http://localhost:4000/posts')
     const posts = await res.json()
 
     return {
         props: {
             posts,
-        }
+        },
+        revalidate: 10
     }
 }

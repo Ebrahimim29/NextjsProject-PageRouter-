@@ -1,10 +1,9 @@
-// import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
 
 const PostId = ({post}) => {
 
-    // const router = useRouter()
+    const router = useRouter()
 
     // 1)-------fallback:true:
 
@@ -44,7 +43,7 @@ export async function getStaticProps(context) {
     
     const {params} = context
 
-    const res = await fetch (`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+    const res = await fetch (`https://localhost:4000/posts/${params.postId}`)
     const post = await res.json()
 
     console.log(post.id);    
@@ -53,6 +52,7 @@ export async function getStaticProps(context) {
         props: {
             post,
         },
+        revalidate: 30
     }
 
 }
