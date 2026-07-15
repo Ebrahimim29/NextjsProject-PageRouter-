@@ -1,61 +1,48 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
 
-const UserId = ({user}) => {
-   
-    // console.log(user);
-    const  router = useRouter()
-    
-    return(
-        <div className="d-flex justify-content-center align-items-center flex-column">
+const UserId = ({ user }) => {
+  // console.log(user);
+  const router = useRouter();
 
-            <Button className="mt-2" onClick={()=>router.back()}>
-                Back
-            </Button>
-            <br /><br />
-            {user.name}
-            <br />
-            {user.phone}
-            <br />
-            {user.email}
-            <br />
-            {user.website}
-            <br />
-            {user.address.city}
-        </div>
-    )
+  return (
+    <div className="d-flex justify-content-center align-items-center flex-column">
+      <Button className="mt-2" onClick={() => router.back()}>
+        Back
+      </Button>
+      <br />
+      <br />
+      {user.name}
+      <br />
+      {user.phone}
+      <br />
+      {user.email}
+      <br />
+      {user.website}
+      <br />
+      {user.address.street}
+    </div>
+  );
 };
 
 export default UserId;
 
+export async function getServerSideProps(context) {
+  const { params , req , res, query} = context;
 
-export async function getStaticPaths() {
+  res.setHeader('Set-Cookie', [`page=${params.userId}`])
+  console.log(req.headers.cookie);
+  console.log(query);
 
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
-    const users = await res.json()
+  const response = await fetch(`http://localhost:4000/users/${params.userId}`);
+  const user = await response.json();
 
-    const paths = users.map(u=>{
-        return { params: {userId: `${u.id}`}}
-    })
-    return {
-        paths,
-        fallback: false
-    }
+  return {
+    props: {
+        user,
+    },
+  };
 }
 
 
-export async function getStaticProps(context) {
 
-    const {params} = context
-    console.log(params.userId);
-    
-
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`)
-    const user = await res.json()
-
-    return {
-        props:{
-            user,
-        }
-    }
-}

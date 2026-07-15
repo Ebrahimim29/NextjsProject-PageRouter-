@@ -38,7 +38,7 @@ export default function Users (props) {
 
 
 export async function getServerSideProps() {
-    const res = await fetch('https://localhost:4000/users')
+    const res = await fetch('http://localhost:4000/users')
     const users = await res.json()
     return {
         props: { users }
