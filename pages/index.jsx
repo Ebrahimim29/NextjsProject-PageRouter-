@@ -40,6 +40,22 @@ export default function Index() {
                 posts
               </Link>
             </ListGroup.Item>
+            <ListGroup.Item>
+              <Link
+                href={"/admin"}
+                className="bg-success text-dark p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
+              >
+                admin
+              </Link>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Link
+                href={"/admin/panel"}
+                className="bg-danger text-dark p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
+              >
+                admin-panel
+              </Link>
+            </ListGroup.Item>
           </ListGroup>
         </Row>
       </Container>

@@ -134,5 +134,12 @@
           "catchPhrase": "Multi-tiered zero tolerance productivity",
           "bs": "transition cutting-edge web services"
         }
-      }]
+      }
+    ],
+    "admin" : {
+      "sell" : 50,
+      "products" : 100,
+      "users" : 30,
+      "carts" : 3
+    }
 }
