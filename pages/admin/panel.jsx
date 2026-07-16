@@ -12,7 +12,7 @@ const handleGetData = async () => {
 const Panel = () => {
 
     const router = useRouter()
-    const {data, isLoading, error} = useSWR('admin', handleGetData)
+    const {data, isLoading, error, isValidating} = useSWR('admin', handleGetData)
     
     return isLoading ?(
         <h1 className="mt-5 text-center text-success">Loading...</h1>
@@ -29,6 +29,9 @@ const Panel = () => {
                     <li>{`${key} : ${data[key]}`}</li>
                 ))}
             </ul>
+            
+            {isValidating && (<h1 className="mt-5 text-center">Loading...</h1>)}
+
         </div>
     )
     

@@ -137,7 +137,7 @@
       }
     ],
     "admin" : {
-      "sell" : 50,
+      "sell" : 80,
       "products" : 100,
       "users" : 30,
       "carts" : 3
