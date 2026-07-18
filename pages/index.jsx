@@ -53,7 +53,15 @@ export default function Index() {
                 href={"/admin/panel"}
                 className="bg-danger text-dark p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
               >
-                admin-panel
+                Admin-Panel
+              </Link>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Link
+                href={"/fPosts"}
+                className="bg-bg-dark text-white p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
+              >
+                Filtered-Posts
               </Link>
             </ListGroup.Item>
           </ListGroup>
