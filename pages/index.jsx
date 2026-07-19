@@ -59,7 +59,7 @@ export default function Index() {
             <ListGroup.Item>
               <Link
                 href={"/fPosts"}
-                className="bg-bg-dark text-white p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
+                className="bg-dark text-white p-3 fs-3 mb-1 w-100 d-block text-decoration-none"
               >
                 Filtered-Posts
               </Link>
