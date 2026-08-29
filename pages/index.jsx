@@ -1,9 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Container, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 
 export default function Index() {
   // console.log(props);
+
+  // Part Routing in API Routes:
+  const [data, setData] = useState([])
+  const handleGetData = async () => {
+    const res = await fetch("/api/products")
+    console.log(res);
+
+    const products = await res.json()    
+    setData(products)
+  }
 
   return (
     <div>
@@ -14,6 +24,15 @@ export default function Index() {
       <br />
       <Link href={"/houses"}>Houses</Link>
       <br />
+
+      {/* Part Routing in API Routes: */}
+      <button onClick={handleGetData}>Get Data</button>
+      <ul>
+        {data.map(d=>(
+          <li key={d.title}>{d.title}-{d.price}</li>
+        ))}
+      </ul>
+
 
       {/* <ul>
                 {props.users.map(u => (
